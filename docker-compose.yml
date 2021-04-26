@@ -1,0 +1,20 @@
+version: '3'
+
+### Oracle
+
+services:
+  oracle19:
+    build:
+        context: ./dockerfile
+        dockerfile: Dockerfile_oracle19
+    container_name: ora19
+    hostname: 19c
+    image: db/oracle:19
+    tty: true
+    stdin_open: true
+    privileged: true
+    command: /sbin/init
+    ports:
+      - "11521:1521"
+      - "15500:5500"
+    restart: unless-stopped
