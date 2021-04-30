@@ -3,7 +3,7 @@
 source /home/oracle/.bashrc
 
 # stop database
-echo ">>> stop oracle"
+echo "\n>>> stop oracle"
 sqlplus / as sysdba << EOF
    alter pluggable database all close;
    show pdbs;
@@ -12,5 +12,5 @@ sqlplus / as sysdba << EOF
 EOF
 
 # stop listener
-echo ">>> stop listener"
+echo "\n>>> stop listener"
 lsnrctl stop
