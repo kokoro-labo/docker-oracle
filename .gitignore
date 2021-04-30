@@ -1,6 +1,9 @@
 # Docker Setting
 .env
 
+# Database RPM
+*.rpm
+
 # Database Volumes
 volumes/
 
