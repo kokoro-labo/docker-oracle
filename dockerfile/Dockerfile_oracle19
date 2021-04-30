@@ -41,7 +41,8 @@ RUN cd /tmp && \
     mv listener.ora /opt/oracle/product/19c/dbhome_1/network/admin/listener.ora && \
     cat add_bashrc.lst >> /home/oracle/.bashrc && \
     mv startOracle.sh /home/oracle/startOracle.sh && \
-    mv stopOracle.sh /home/oracle/stopOracle.sh
+    mv stopOracle.sh /home/oracle/stopOracle.sh && \
+    chmod +x /home/oracle/startOracle.sh /home/oracle/stopOracle.sh
 
 ENV LANG=ja_JP.UTF-8 \
     LC_ALL=ja_JP.UTF-8 \
