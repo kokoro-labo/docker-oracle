@@ -42,7 +42,8 @@ RUN cd /tmp && \
     cat add_bashrc.lst >> /home/oracle/.bashrc && \
     mv startOracle.sh /home/oracle/startOracle.sh && \
     mv stopOracle.sh /home/oracle/stopOracle.sh && \
-    chmod +x /home/oracle/startOracle.sh /home/oracle/stopOracle.sh
+    mv firstSetup.sh /home/oracle/firstSetup.sh && \
+    chmod +x /home/oracle/startOracle.sh /home/oracle/stopOracle.sh /home/oracle/firstSetup.sh
 
 ENV LANG=ja_JP.UTF-8 \
     LC_ALL=ja_JP.UTF-8 \
