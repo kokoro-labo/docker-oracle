@@ -9,7 +9,8 @@ RUN yum -y update && yum clean all && \
     echo 'ZONE="Asia/Tokyo"' > /etc/sysconfig/clock && \
     echo 'UTC=false' >> /etc/sysconfig/clock && \
     ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime && \
-    yum -y install ncurses-devel make gcc git curl wget unzip
+    yum -y install ncurses-devel make gcc git curl wget unzip && \
+    yum clean all
 
 # copy RPM binary
 COPY rpm/ /tmp/
@@ -22,7 +23,9 @@ RUN cd /tmp && \
     yum -y localinstall oracle-database-preinstall-19c-1.0-1.el7.x86_64.rpm && \
     sed -i -r 's/^(session\s+required\s+pam_limits.so)/#\1/' /etc/pam.d/* && \
     yum -y localinstall oracle-database-ee-19c-1.0-1.x86_64.rpm && \
-    rm oracle-database-preinstall-19c-1.0-1.el7.x86_64.rpm
+    yum clean all && \
+    rm oracle-database-preinstall-19c-1.0-1.el7.x86_64.rpm && \
+    rm oracle-database-ee-19c-1.0-1.x86_64.rpm
 
 # configure oracle 19c
 ## transparent_hugepage see : https://access.redhat.com/documentation/ja-jp/red_hat_enterprise_linux/7/html/performance_tuning_guide/sect-red_hat_enterprise_linux-performance_tuning_guide-configuring_transparent_huge_pages
@@ -50,7 +53,3 @@ ENV LANG=ja_JP.UTF-8 \
     LANGUAGE=ja_JP:ja
 
 # CMD ["/sbin/init"]
-
-# lsnrctl start
-# SQL> startup
-# SQL> ALTER USER SYS IDENTIFIED BY password;

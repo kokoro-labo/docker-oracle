@@ -3,7 +3,7 @@
 source /home/oracle/.bashrc
 
 # First Oracle Setup
-echo "\n>>> first oracle setup"
+printf "\n>>> first oracle setup\n"
 sqlplus / as sysdba << EOF
     CONN /as SYSDBA;
     SHOW CON_NAME;

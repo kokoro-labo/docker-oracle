@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo "\n>>> start container"
+printf "\n>>> start container\n"
 docker start ora19
 sleep 5s
 
-echo "\n>>> start oracle"
+# Start Listener and Oracle
 docker exec -u oracle ora19 /home/oracle/startOracle.sh

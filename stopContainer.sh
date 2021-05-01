@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo "\n>>> stop oracle"
+# Stop Oracle and Listener
 docker exec -u oracle ora19 /home/oracle/stopOracle.sh
 sleep 5s
 
-echo "\n>>> stop container"
+printf "\n>>> stop container\n"
 docker stop ora19
