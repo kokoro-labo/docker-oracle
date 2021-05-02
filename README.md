@@ -1,10 +1,10 @@
 # docker-oracle
 
-Use the Oracle database for learning
+Use the Oracle database for learning based on OTN LICENSE
 
 ## Prepare
 
-### Before BUILD
+### Before Container Build
 
 Place the RPM in the specified directory
 
@@ -12,13 +12,14 @@ Place the RPM in the specified directory
 dockerfile/rpm/oracle-database-*.rpm
 ```
 
-### After BUILD
+### After Container Build
 
 Run firstSetup.sh
 
 The sh performs the following processing
 
-* Set SYS password
+* Change SYS password
+* Change DEFAULT PROFILE password_life_time
 * Create PDB's user as DBA
 * Check PDB's user status
 
