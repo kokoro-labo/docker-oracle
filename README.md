@@ -42,7 +42,7 @@ docker-compose start
 docker exec -it -u oracle ora19 /home/oracle/startOracle.sh
 ```
 
-## hutdown
+## Shutdown
 
 Oracle shutdown and Container stop
 
@@ -55,6 +55,15 @@ or
 ```
 docker exec -it -u oracle ora19 /home/oracle/stopOracle.sh
 docker-compose stop
+```
+
+## Use
+
+Use Oracle
+
+```
+docker exec -it -u oracle ora19 /bin/bash
+sqlplus TEST@ORCLPDB1
 ```
 
 ## Use Images
