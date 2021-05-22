@@ -6,7 +6,7 @@ services:
   oracle19:
     build:
         context: ./dockerfile
-        dockerfile: Dockerfile_oracle19
+        dockerfile: oracle19.Dockerfile
     container_name: ora19
     hostname: 19c
     image: db/oracle:19
