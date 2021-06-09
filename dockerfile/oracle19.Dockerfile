@@ -42,6 +42,7 @@ RUN cd /tmp && \
     mv tnsnames.ora /opt/oracle/product/19c/dbhome_1/network/admin/tnsnames.ora && \
     mv /opt/oracle/product/19c/dbhome_1/network/admin/listener.ora /opt/oracle/product/19c/dbhome_1/network/admin/listener.ora.bk && \
     mv listener.ora /opt/oracle/product/19c/dbhome_1/network/admin/listener.ora && \
+    cat add_glogin.lst >> /opt/oracle/product/19c/dbhome_1/sqlplus/admin/glogin.sql && \
     cat add_bashrc.lst >> /home/oracle/.bashrc && \
     mv startOracle.sh /home/oracle/startOracle.sh && \
     mv stopOracle.sh /home/oracle/stopOracle.sh && \
