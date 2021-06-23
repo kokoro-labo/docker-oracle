@@ -14,6 +14,11 @@ dockerfile/rpm/oracle-database-*.rpm
 
 ### After Container Build
 
+Run startOracle.sh
+
+* Start Listener
+* Start Oracle
+
 Run firstSetup.sh
 
 The sh performs the following processing
@@ -25,6 +30,7 @@ The sh performs the following processing
 
 ```
 docker-compose start
+docker exec -it -u oracle ora19 /home/oracle/startOracle.sh
 docker exec -it -u oracle ora19 /home/oracle/firstSetup.sh
 ```
 
@@ -64,7 +70,7 @@ Use Oracle
 
 ```
 docker exec -it -u oracle ora19 /bin/bash
-sqlplus TEST@ORCLPDB1
+sqlplus TEST@PDB1
 ```
 
 ## Use Images

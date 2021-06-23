@@ -14,7 +14,7 @@ sqlplus / as sysdba << EOF
     /* Change DEFAULT's password_life_time */
     ALTER PROFILE default LIMIT password_life_time UNLIMITED;
 
-    ALTER SESSION SET CONTAINER=ORCLPDB1;
+    ALTER SESSION SET CONTAINER=PDB1;
     SHOW CON_NAME;
 
     /* Create USER for PDB */

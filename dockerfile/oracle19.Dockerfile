@@ -30,8 +30,12 @@ RUN cd /tmp && \
 # configure oracle 19c
 ## transparent_hugepage see : https://access.redhat.com/documentation/ja-jp/red_hat_enterprise_linux/7/html/performance_tuning_guide/sect-red_hat_enterprise_linux-performance_tuning_guide-configuring_transparent_huge_pages
 # RUN echo never > /sys/kernel/mm/transparent_hugepage/enabled && \
-RUN env ORACLE_DOCKER_INSTALL=true && \
-    /etc/init.d/oracledb_ORCLCDB-19c configure
+## edit conf see : https://www.scpepper.tokyo/2019/06/03/oracle-database-19c-installation/
+RUN cp -a /etc/sysconfig/oracledb_ORCLCDB-19c.conf /etc/sysconfig/oracledb_CDB-19c.conf && \
+    sed -e s/ORCLCDB/CDB/g -e s/ORCLPDB1/PDB1/g /etc/init.d/oracledb_ORCLCDB-19c > /etc/init.d/oracledb_CDB-19c && \
+    chmod 755 /etc/init.d/oracledb_CDB-19c && \
+    env ORACLE_DOCKER_INSTALL=true && \
+    /etc/init.d/oracledb_CDB-19c configure
 
 # copy setup files
 COPY --chown=oracle:oinstall setup/ /tmp/
@@ -47,7 +51,8 @@ RUN cd /tmp && \
     mv startOracle.sh /home/oracle/startOracle.sh && \
     mv stopOracle.sh /home/oracle/stopOracle.sh && \
     mv firstSetup.sh /home/oracle/firstSetup.sh && \
-    chmod +x /home/oracle/startOracle.sh /home/oracle/stopOracle.sh /home/oracle/firstSetup.sh
+    mv checkStatus.sh /home/oracle/checkStatus.sh && \
+    chmod +x /home/oracle/startOracle.sh /home/oracle/stopOracle.sh /home/oracle/firstSetup.sh /home/oracle/checkStatus.sh
 
 ENV LANG=ja_JP.UTF-8 \
     LC_ALL=ja_JP.UTF-8 \
