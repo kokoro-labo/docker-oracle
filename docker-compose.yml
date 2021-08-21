@@ -18,3 +18,18 @@ services:
       - "11521:1521"
       - "15500:5500"
     restart: unless-stopped
+
+  oracle21:
+    build:
+        context: ./dockerfile
+        dockerfile: oracle21.Dockerfile
+    container_name: ora21
+    hostname: 21c
+    image: db/oracle:21
+    tty: true
+    stdin_open: true
+    privileged: true
+    command: /sbin/init
+    ports:
+      - "11621:1521"
+    restart: unless-stopped
