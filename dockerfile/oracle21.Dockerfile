@@ -42,8 +42,10 @@ COPY --chown=oracle:oinstall setup_21c/ /tmp/
 
 # setup
 RUN cd /tmp && \
-    mv tnsnames.ora /opt/oracle/product/21c/dbhome_1/network/admin/tnsnames.ora && \
-    mv listener.ora /opt/oracle/product/21c/dbhome_1/network/admin/listener.ora && \
+    mv /opt/oracle/homes/OraDBHome21cEE/network/admin/tnsnames.ora /opt/oracle/homes/OraDBHome21cEE/network/admin/tnsnames.ora.bk && \
+    mv tnsnames.ora /opt/oracle/homes/OraDBHome21cEE/network/admin/tnsnames.ora && \
+    mv /opt/oracle/homes/OraDBHome21cEE/network/admin/listener.ora /opt/oracle/homes/OraDBHome21cEE/network/admin/listener.ora.bk && \
+    mv listener.ora /opt/oracle/homes/OraDBHome21cEE/network/admin/listener.ora && \
     cat add_glogin.lst >> /opt/oracle/product/21c/dbhome_1/sqlplus/admin/glogin.sql && \
     cat add_bashrc.lst >> /home/oracle/.bashrc && \
     mv startOracle.sh /home/oracle/startOracle.sh && \
