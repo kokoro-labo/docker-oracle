@@ -1,4 +1,0 @@
-export ORACLE_HOME=/opt/oracle/product/19c/dbhome_1
-export ORACLE_SID=CDB
-export NLS_LANG=Japanese_Japan.AL32UTF8
-export PATH=/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/oracle/.local/bin:/home/oracle/bin:/opt/oracle/product/19c/dbhome_1/bin
