@@ -13,7 +13,7 @@ RUN yum -y update && yum clean all && \
     yum clean all
 
 # copy RPM binary
-COPY rpm/ /tmp/
+COPY rpm_19c/ /tmp/
 
 # install oracle rpm
 ## sed command see : https://github.com/oracle/docker-images/issues/1544
@@ -38,7 +38,7 @@ RUN cp -a /etc/sysconfig/oracledb_ORCLCDB-19c.conf /etc/sysconfig/oracledb_CDB-1
     /etc/init.d/oracledb_CDB-19c configure
 
 # copy setup files
-COPY --chown=oracle:oinstall setup/ /tmp/
+COPY --chown=oracle:oinstall setup_19c/ /tmp/
 
 # setup
 RUN cd /tmp && \
